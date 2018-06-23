@@ -73,6 +73,8 @@ Player.prototype.handleInput = function (keyPress) {
 }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
+var allEnemies = [];
+var enemyLocation = [36, 111 , 240];
 
 
 
