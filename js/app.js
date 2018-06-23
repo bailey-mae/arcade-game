@@ -9,11 +9,11 @@ var Enemy = function(x, y, speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    this.x =+ this.speed * dt;
+    this.x += this.speed * dt;
     if (this.x > 510) {
         this.x = -50;
         this.speed = 100 + Math.floor(Math.random() *222);
-    }
+    };
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random//
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -40,7 +40,7 @@ Enemy.prototype.render = function() {
 var Player = function (x, y) {
     this.x = x;
     this.y = y;
-    this.player = 'images/char-horn-girl.png';
+    this.player = 'images/char-boy.png';
 }
 
 Player.prototype.update = function(dt) {
@@ -48,8 +48,13 @@ Player.prototype.update = function(dt) {
 }
 
 Player.prototype.render = function () {
+    //ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     ctx.drawImage(Resources.get(this.player), this.x, this.y);
 }
+/*
+Enemy.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};*/
 
 Player.prototype.handleInput = function (keyPress) {
     if (keyPress == 'left' && this.x > 0) {
@@ -68,7 +73,8 @@ Player.prototype.handleInput = function (keyPress) {
         setTimeout (function () {
             player.x = 202;
             player.y = 405;
-        }; 600);
+        })
+         600
     }
 }
 // Now instantiate your objects.
