@@ -9,9 +9,22 @@ var Enemy = function(x, y, speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+    this.x =+ this.speed * dt;
+    if (this.x > 510) {
+        this.x = -50;
+        this.speed = 100 + Math.floor(Math.random() *222);
+    }
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random//
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    if (player.x < this.x +80 &&
+        player.x + 80 > this.x &&
+        player.y < this.y +60 &&
+        60 + player.y > this.y) {
+        player.x = 202;
+        player.y = 405;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
